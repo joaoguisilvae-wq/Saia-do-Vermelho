@@ -102,20 +102,22 @@ header {
   margin-bottom: 20px;
 }
 
+#barra-de-pesquisa {
+  display: flex;
+}
+
+#barra-de-pesquisa figure img {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+
 #barra-de-pesquisa input[type="text"] {
-  width: 400px;
+  width: 700px;
   padding: 10px;
   border-radius: 20px;
   border: 1px solid #ccc;
-}
-
-#barra-de-pesquisa input[type="submit"] {
-  padding: 10px 20px;
-  border-radius: 20px;
-  border: none;
-  background: #ae1616;
-  color: #fff;
-  cursor: pointer;
+  display: inline-block;
 }
 
 #config-conta img {
