@@ -70,6 +70,7 @@ a {
   margin-top: auto;
   text-align: center;
   background: #780a0a;
+  align-items: space-between;
 }
 
 #logout a {
@@ -78,9 +79,11 @@ a {
 }
 
 #logout figure img {
-  width: 28px;
-  height: 28px;
+  width: 35px;
+  height: 25px;
   display: inline-block;
+  margin-top: 43px;
+  padding-right: 10px;
 }
 
 /* Conteúdo principal */
