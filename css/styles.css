@@ -113,7 +113,8 @@ header {
 }
 
 #barra-de-pesquisa input[type="text"] {
-  width: 700px;
+  max-width: 600px;
+  width: 100%;
   padding: 10px;
   border-radius: 20px;
   border: 1px solid #ccc;
