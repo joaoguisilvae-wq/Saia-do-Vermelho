@@ -70,6 +70,7 @@ a {
   margin-top: auto;
   text-align: center;
   background: #780a0a;
+  align-items: space-between;
 }
 
 #logout a {
@@ -78,9 +79,11 @@ a {
 }
 
 #logout figure img {
-  width: 28px;
-  height: 28px;
+  width: 35px;
+  height: 25px;
   display: inline-block;
+  margin-top: 43px;
+  padding-right: 10px;
 }
 
 /* Conteúdo principal */
@@ -99,20 +102,22 @@ header {
   margin-bottom: 20px;
 }
 
+#barra-de-pesquisa {
+  display: flex;
+}
+
+#barra-de-pesquisa figure img {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+
 #barra-de-pesquisa input[type="text"] {
-  width: 400px;
+  width: 700px;
   padding: 10px;
   border-radius: 20px;
   border: 1px solid #ccc;
-}
-
-#barra-de-pesquisa input[type="submit"] {
-  padding: 10px 20px;
-  border-radius: 20px;
-  border: none;
-  background: #ae1616;
-  color: #fff;
-  cursor: pointer;
+  display: inline-block;
 }
 
 #config-conta img {
