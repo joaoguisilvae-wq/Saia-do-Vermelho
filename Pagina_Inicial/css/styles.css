@@ -9,7 +9,7 @@
 body {
   background-color: #e5e5e5;
   display: flex;
-  height: 100vh;
+  height: 100dvh;
 }
 
 a {
