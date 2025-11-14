@@ -70,6 +70,7 @@
             <input
               type="text"
               placeholder="Pesquise sobre suas finanças, histórico, investimentos..."
+              onkeyup="search()"
             />
           </form>
         </div>
@@ -85,7 +86,9 @@
       <!-- Graficos -->
       <section id="graficos-section">
         <div class="grafico-container">📊 Gastos por categoria</div>
-        <div class="grafico-container">🥧 Gastos de Setembro</div>
+        <div class="grafico-container">
+          🥧 Gastos <spam id="grafico"></spam>
+        </div>
         <div class="grafico-container">
           📈 Comparativo de gastos com receita
         </div>
