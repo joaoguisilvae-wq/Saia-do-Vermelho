@@ -15,49 +15,55 @@
   </head>
   <body>
     <!-- Barra lateral -->
-    <nav id="navbar-container">
-      <figure>
-        <img src="img/Frame 12.png" alt="Logotipo" />
-      </figure>
-      <ul>
-        <li class="navbar-btn">
-          <a href="#"
-            ><img src="img/iconoir_coin.png" alt="Finanças" /> Finanças</a
-          >
-        </li>
-        <li class="navbar-btn">
-          <a href="#"
-            ><img
-              src="img/healthicons_spreadsheets-outline.png"
-              alt="Planilhas"
-            />
-            Planilhas</a
-          >
-        </li>
-        <li class="navbar-btn">
-          <a href="#"><img src="img/Vector.png" alt="Ajuda" /> Ajuda</a>
-        </li>
-        <li class="navbar-btn">
-          <a href="#"
-            ><img src="img/ion_business-outline.png" alt="Sobre nós" /> Sobre
-            nós</a
-          >
-        </li>
-      </ul>
-      <div class="navbar-btn" id="logout">
+    <header>
+      <nav id="navbar-container">
         <figure>
-          <img src="img/qlementine-icons_log-out-16.png" alt="Sair" />
+          <img src="img/Frame 12.png" alt="Logotipo" />
         </figure>
-        <a href="#">Sair da conta</a>
-      </div>
-    </nav>
-
+        <ul>
+          <li class="navbar-btn">
+            <a href="#"
+              ><img src="img/iconoir_coin.png" alt="Finanças" /> Finanças</a
+            >
+          </li>
+          <li class="navbar-btn">
+            <a href="#"
+              ><img
+                src="img/healthicons_spreadsheets-outline.png"
+                alt="Planilhas"
+              />
+              Planilhas</a
+            >
+          </li>
+          <li class="navbar-btn">
+            <a href="#"><img src="img/Vector.png" alt="Ajuda" /> Ajuda</a>
+          </li>
+          <li class="navbar-btn">
+            <a href="#"
+              ><img src="img/ion_business-outline.png" alt="Sobre nós" /> Sobre
+              nós</a
+            >
+          </li>
+        </ul>
+        <div class="navbar-btn" id="logout">
+          <figure>
+            <img src="img/qlementine-icons_log-out-16.png" alt="Sair" />
+          </figure>
+          <a href="#">Sair da conta</a>
+        </div>
+      </nav>
+    </header>
     <!-- Conteúdo principal -->
-    <div class="main-content">
-      <header>
+    <main id="main">
+      <div id="barra-superior">
+        <div id="mudartema">
+          <button id="tema-btn">
+            <img src="img/theme-button.png" alt="Mudar o tema da pagina" />
+          </button>
+        </div>
         <div id="barra-de-pesquisa">
           <form action="">
-            <figure>
+            <figure id="lupa">
               <img src="img/Lupa.png" alt="Lupa" />
             </figure>
             <input
@@ -66,15 +72,17 @@
             />
           </form>
         </div>
+        <button id="add-variaçao">
+          <span>+</span> Adicionar gasto ou ganho
+        </button>
         <div id="config-conta">
-          <figure>
+          <figure id="conta">
             <img src="img/Frame 30.png" alt="Conta" />
           </figure>
         </div>
-      </header>
-
-      <!-- Área de gráficos -->
-      <section class="graficos">
+      </div>
+      <!-- Graficos -->
+      <section id="graficos-section">
         <div class="grafico-container">📊 Gastos por categoria</div>
         <div class="grafico-container">🥧 Gastos de Setembro</div>
         <div class="grafico-container">
@@ -82,6 +90,6 @@
         </div>
         <div class="grafico-container">📉 Projeção de gastos</div>
       </section>
-    </div>
+    </main>
   </body>
 </html>
