@@ -83,49 +83,51 @@
           </figure>
         </div>
       </div>
-      <div>
-        <div class="grafico-container" id="ganhos-e-gastos">
-          <h3>Ganhos e gastos</h3>
+      <!-- form -->
+      <div class="grafico-container" id="ganhos-e-gastos">
+        <h3>Ganhos e gastos</h3>
+        <form>
           <label for="adicionar-ou-retirar">
             Adicionar ou retirar
             <input type="radio" id="Adicionar" name="opção" value="0" checked />
             <input type="radio" id="Retirar" name="opção" value="0" />
           </label>
-        </div>
-        <label for="categoria">
-          Categoria
-          <select name="categoria" id="categoria">
-            <option value="alimentação" selected>Alimentação</option>
-            <option value="transporte">Transporte</option>
-            <option value="moradia">Moradia</option>
-            <option value="lazer">Lazer</option>
-            <option value="saúde">Saúde</option>
-            <option value="educação">Educação</option>
-            <option value="investimentos">Investimentos</option>
-            <option value="outros">Outros</option>
-          </select>
-        </label>
-        <div>
-          <label for="data">
-            Data
-            <input type="date" id="data" name="data" />
+
+          <label for="categoria">
+            Categoria
+            <select name="categoria" id="categoria">
+              <option value="alimentação" selected>Alimentação</option>
+              <option value="transporte">Transporte</option>
+              <option value="moradia">Moradia</option>
+              <option value="lazer">Lazer</option>
+              <option value="saúde">Saúde</option>
+              <option value="educação">Educação</option>
+              <option value="investimentos">Investimentos</option>
+              <option value="outros">Outros</option>
+            </select>
           </label>
-        </div>
-        <div>
-          <label for="valor">
-            Valor
-            <input type="text" id="valor" name="valor" placeholder="R$" />
-          </label>
-        </div>
-        <div>
-          <label for="descricao">
-            Descrição
-            <input type="text" id="descricao" name="descricao" />
-          </label>
-        </div>
-        <div>
-          <input type="button" value="Salvar e voltar" />
-        </div>
+          <div>
+            <label for="data">
+              Data
+              <input type="date" id="data" name="data" />
+            </label>
+          </div>
+          <div>
+            <label for="valor">
+              Valor
+              <input type="text" id="valor" name="valor" placeholder="R$" />
+            </label>
+          </div>
+          <div>
+            <label for="descricao">
+              Descrição
+              <input type="text" id="descricao" name="descricao" />
+            </label>
+          </div>
+          <div>
+            <input type="button" value="Salvar e voltar" />
+          </div>
+        </form>
       </div>
       <!-- Graficos -->
       <section id="graficos-section">

@@ -4,6 +4,8 @@
   --cor-txt: #000;
   --cor-fundo-btn: #fff;
   --cor-txt-btn: #000;
+  --cor-fundo-form: #fff;
+  --cor-txt-form: #000;
 }
 
 /* Reset e estilo geral */
@@ -26,10 +28,18 @@ body.dark {
   --cor-fundo-btn: #2a2a2a;
   --cor-txt: #000;
   --cor-txt-btn: #fff;
+  --cor-fundo-form: #2a2a2a;
+  --cor-txt-form: #fff;
 }
 
 a {
   text-decoration: none;
+}
+
+/* Ganhos e gastos */
+#ganhos-e-gastos {
+  background-color: var(--cor-fundo-form);
+  color: var();
 }
 
 /* Barra lateral */
@@ -64,6 +74,7 @@ header {
 
 .navbar-btn {
   background-color: var(--cor-fundo-btn);
+  color: var(--cor-txt-btn);
   width: 184px;
   height: 38px;
   font-size: 18px;
@@ -76,15 +87,11 @@ header {
   transition: 0.3s;
 }
 
-.navbar-btn.dark {
-  --cor-txt-btn: #fff;
-}
-
 .navbar-btn a {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #000;
+  color: var(--cor-txt-btn);
   font-weight: bold;
 }
 
