@@ -34,17 +34,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Adicionar ou gastos ou ganhos
 
-  if (addButton) {
-    addButton.addEventListener("click", () => {
-      console.log('Botão "Adicionar gasto ou ganho" clicado');
-    });
-  }
+  addButton.addEventListener("click", () => {
+    console.log('Botão "Adicionar gasto ou ganho" clicado');
+  });
 
   // mudança de tema
 
-  if (themeButton) {
-    themeButton.addEventListener("click", () => {
-      console.log("Tema alterado");
-    });
-  }
+  themeButton.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+  });
 });

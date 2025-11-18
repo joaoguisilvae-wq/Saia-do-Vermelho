@@ -1,3 +1,11 @@
+/* Root */
+:root {
+  --cor-fundo: #d5d5d5;
+  --cor-txt: #000;
+  --cor-fundo-btn: #fff;
+  --cor-txt-btn: #000;
+}
+
 /* Reset e estilo geral */
 * {
   margin: 0;
@@ -7,9 +15,17 @@
 }
 
 body {
-  background-color: #e5e5e5;
+  background-color: var(--cor-fundo);
+  color: var(--cor-txt);
   display: flex;
   height: 100dvh;
+}
+
+body.dark {
+  --cor-fundo: #2a2a2a;
+  --cor-fundo-btn: #2a2a2a;
+  --cor-txt: #000;
+  --cor-txt-btn: #fff;
 }
 
 a {
@@ -22,7 +38,7 @@ header {
 }
 
 #navbar-container {
-  background: #ae1616;
+  background-color: #ae1616;
   width: 225px;
   margin: 21px 33px;
   margin-bottom: 21px;
@@ -47,7 +63,7 @@ header {
 }
 
 .navbar-btn {
-  background-color: #fff;
+  background-color: var(--cor-fundo-btn);
   width: 184px;
   height: 38px;
   font-size: 18px;
@@ -58,6 +74,10 @@ header {
   justify-content: center;
   box-shadow: 5px 5px 10px 0px #00000040;
   transition: 0.3s;
+}
+
+.navbar-btn.dark {
+  --cor-txt-btn: #fff;
 }
 
 .navbar-btn a {
