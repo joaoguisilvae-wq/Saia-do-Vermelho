@@ -12,9 +12,62 @@
       href="https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    ;
     <script src="js/scripts.js" defer></script>
   </head>
   <body>
+    <!-- Formulário de Ganhos e Gastos -->
+    <div id="ganhos-gastos" class="hidden">
+      <h3>Gastos e Ganhos</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Adicionar ou retirar</label>
+          <div class="toggle-buttons">
+            <button type="button" class="toggle-btn active" data-value="add">
+              ✅
+            </button>
+            <button type="button" class="toggle-btn" data-value="remove">
+              ❌
+            </button>
+          </div>
+          <input type="hidden" id="opcao" name="opcao" value="add" />
+        </div>
+        <div class="form-group">
+          <label>Categoria</label>
+          <select name="categoria" id="categoria">
+            <option value="alimentação" selected>Alimentação</option>
+            <option value="transporte">Transporte</option>
+            <option value="moradia">Moradia</option>
+            <option value="lazer">Lazer</option>
+            <option value="saúde">Saúde</option>
+            <option value="educação">Educação</option>
+            <option value="investimentos">Investimentos</option>
+            <option value="outros">Outros</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Data</label>
+          <input type="date" id="data" name="data" />
+        </div>
+        <div class="form-group">
+          <label>Valor</label>
+          <input type="text" id="valor" name="valor" placeholder="Ex: R$1,00" />
+        </div>
+      </div>
+      <div class="form-group full-width">
+        <label>Descrição</label>
+        <input type="text" id="descricao" name="descricao" />
+      </div>
+      <button type="submit" class="save-btn">Salvar e Voltar</button>
+    </div>
+    <div id="modal-historico" class="hidden">
+      <h3>Histórico de Lançamentos</h3>
+      <button id="fechar-historico" class="btn-fechar">&times;</button>
+      <div id="lista-lancamentos-historico"></div>
+    </div>
     <!-- Barra lateral -->
     <header>
       <nav id="navbar-container">
@@ -45,6 +98,9 @@
               nós</a
             >
           </li>
+          <li class="navbar-btn">
+            <a href="#" id="btn-historico"> 📜 Histórico </a>
+          </li>
         </ul>
         <div class="navbar-btn" id="logout">
           <figure>
@@ -54,6 +110,7 @@
         </div>
       </nav>
     </header>
+
     <!-- Conteúdo principal -->
     <main id="main">
       <div id="barra-superior">
@@ -83,62 +140,18 @@
           </figure>
         </div>
       </div>
-      <!-- form -->
-      <div class="grafico-container" id="ganhos-e-gastos">
-        <h3>Ganhos e gastos</h3>
-        <form>
-          <label for="adicionar-ou-retirar">
-            Adicionar ou retirar
-            <input type="radio" id="Adicionar" name="opção" value="0" checked />
-            <input type="radio" id="Retirar" name="opção" value="0" />
-          </label>
 
-          <label for="categoria">
-            Categoria
-            <select name="categoria" id="categoria">
-              <option value="alimentação" selected>Alimentação</option>
-              <option value="transporte">Transporte</option>
-              <option value="moradia">Moradia</option>
-              <option value="lazer">Lazer</option>
-              <option value="saúde">Saúde</option>
-              <option value="educação">Educação</option>
-              <option value="investimentos">Investimentos</option>
-              <option value="outros">Outros</option>
-            </select>
-          </label>
-          <div>
-            <label for="data">
-              Data
-              <input type="date" id="data" name="data" />
-            </label>
-          </div>
-          <div>
-            <label for="valor">
-              Valor
-              <input type="text" id="valor" name="valor" placeholder="R$" />
-            </label>
-          </div>
-          <div>
-            <label for="descricao">
-              Descrição
-              <input type="text" id="descricao" name="descricao" />
-            </label>
-          </div>
-          <div>
-            <input type="button" value="Salvar e voltar" />
-          </div>
-        </form>
-      </div>
-      <!-- Graficos -->
+      <!-- Gráficos -->
       <section id="graficos-section">
-        <div class="grafico-container">📊 Gastos por categoria</div>
         <div class="grafico-container">
-          🥧 Gastos <spam id="grafico"></spam>
+          <canvas id="grafico-categoria"></canvas>
         </div>
         <div class="grafico-container">
-          📈 Comparativo de gastos com receita
+          <canvas id="grafico-comparativo"></canvas>
         </div>
-        <div class="grafico-container">📉 Projeção de gastos</div>
+        <div class="grafico-container">
+          <canvas id="grafico-evolucao"></canvas>
+        </div>
       </section>
     </main>
   </body>
