@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeBtn = document.querySelector(".save-btn");
   const modalHistorico = document.getElementById("modal-historico");
   const btnFecharHistorico = document.getElementById("fechar-historico");
+  const btnFechar = document.querySelector("#fechar-btn");
   const btnHistoricoSidebar = document.getElementById("btn-historico");
 
   // Função para formatar data BR
@@ -256,6 +257,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   }
+
+  btnFechar.addEventListener("click", () => {
+    form.classList.add("hidden");
+  });
 
   // === Funcionalidades existentes ===
 
