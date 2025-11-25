@@ -1,4 +1,4 @@
-// Selecionando elementos
+// Selecionando elementosa
 document.addEventListener("DOMContentLoaded", () => {
   const searchInput = document.querySelector(
     '#barra-de-pesquisa input[type="text"]'
