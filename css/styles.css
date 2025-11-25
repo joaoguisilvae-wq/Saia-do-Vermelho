@@ -62,8 +62,7 @@ header {
   color: #fff;
   box-shadow: 5px 5px 10px 0px #0000004d;
   height: calc(100dvh - 42px);
-  /* REMOVIDO: overflow-y: auto; */
-  justify-content: space-between; /* Distribui os elementos verticalmente */
+  justify-content: space-between;
 }
 
 #navbar-container figure img {
@@ -78,8 +77,8 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 25px; /* Espaçamento entre botões */
-  flex-grow: 1; /* Ocupa o espaço restante acima do logout */
+  gap: 25px;
+  flex-grow: 1;
 }
 
 .navbar-btn {
@@ -117,7 +116,7 @@ header {
   justify-content: center;
   gap: 10px;
   border-radius: 50px;
-  margin-top: 25px; /* Espaço acima do logout */
+  margin-top: 25px;
 }
 
 #logout a {

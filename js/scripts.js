@@ -13,6 +13,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnFecharHistorico = document.getElementById("fechar-historico");
   const btnFechar = document.querySelector("#fechar-btn");
   const btnHistoricoSidebar = document.getElementById("btn-historico");
+  const financasBtn = document.querySelector("#financas");
+  const planilhasBtn = document.querySelector("#planilhas");
+  const ajudaBtn = document.querySelector("#ajuda");
+  const sobreBtn = document.querySelector("#sobre");
 
   // Função para formatar data BR
   function formatarDataBR(dataISO) {
@@ -363,6 +367,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Mudança de tema
+
   if (themeButton) {
     themeButton.addEventListener("click", () => {
       document.body.classList.toggle("dark");
