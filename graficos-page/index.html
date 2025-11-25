@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sala do Vermelho</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="shortcut icon" href="img/Frame 11.png" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="js/scripts.js" defer></script>
+  </head>
+  <body>
+    <!-- Barra lateral -->
+    <header>
+      <nav id="navbar-container" z>
+        <figure>
+          <img src="img/Frame 12.png" alt="Logotipo" />
+        </figure>
+        <ul>
+          <li class="navbar-btn">
+            <a href="#"
+              ><img src="../img/iconoir_coin.png" alt="Finanças" /> Finanças</a
+            >
+          </li>
+          <li class="navbar-btn">
+            <a href="#"
+              ><img
+                src="../img/healthicons_spreadsheets-outline.png"
+                alt="Planilhas"
+              />
+              Planilhas</a
+            >
+          </li>
+          <li class="navbar-btn">
+            <a href="#"><img src="../img/Vector.png" alt="Ajuda" /> Ajuda</a>
+          </li>
+          <li class="navbar-btn">
+            <a href="#"
+              ><img src="../img/ion_business-outline.png" alt="Sobre nós" />
+              Sobre nós</a
+            >
+          </li>
+        </ul>
+        <div class="navbar-btn" id="logout">
+          <figure>
+            <img src="../img/qlementine-icons_log-out-16.png" alt="Sair" />
+          </figure>
+          <a href="#">Sair da conta</a>
+        </div>
+      </nav>
+    </header>
+    <!-- Conteúdo principal -->
+    <main id="main">
+      <div id="barra-superior">
+        <div id="mudartema">
+          <button id="tema-btn">
+            <img src="../img/theme-button.png" alt="Mudar o tema da pagina" />
+          </button>
+        </div>
+        <div id="barra-de-pesquisa">
+          <form action="">
+            <input
+              type="text"
+              placeholder="Pesquise sobre suas finanças, histórico, investimentos..."
+              onkeyup="search()"
+            />
+          </form>
+        </div>
+        <button id="add-variaçao">
+          <span>+</span> Adicionar gasto ou ganho
+        </button>
+        <div id="config-conta">
+          <figure id="conta">
+            <img src="img/Frame 30.png" alt="Conta" />
+          </figure>
+        </div>
+      </div>
+      <!-- form -->
+      <div class="grafico-container" id="ganhos-e-gastos">
+        <h3>Ganhos e gastos</h3>
+        <form>
+          <label for="adicionar-ou-retirar">
+            Adicionar ou retirar
+            <input type="radio" id="Adicionar" name="opção" value="0" checked />
+            <input type="radio" id="Retirar" name="opção" value="0" />
+          </label>
+
+          <label for="categoria">
+            Categoria
+            <select name="categoria" id="categoria">
+              <option value="alimentação" selected>Alimentação</option>
+              <option value="transporte">Transporte</option>
+              <option value="moradia">Moradia</option>
+              <option value="lazer">Lazer</option>
+              <option value="saúde">Saúde</option>
+              <option value="educação">Educação</option>
+              <option value="investimentos">Investimentos</option>
+              <option value="outros">Outros</option>
+            </select>
+          </label>
+          <div>
+            <label for="data">
+              Data
+              <input type="date" id="data" name="data" />
+            </label>
+          </div>
+          <div>
+            <label for="valor">
+              Valor
+              <input type="text" id="valor" name="valor" placeholder="R$" />
+            </label>
+          </div>
+          <div>
+            <label for="descricao">
+              Descrição
+              <input type="text" id="descricao" name="descricao" />
+            </label>
+          </div>
+          <div>
+            <input type="button" value="Salvar e voltar" />
+          </div>
+        </form>
+      </div>
+      <!-- Graficos -->
+      <section id="graficos-section">
+        <div class="grafico-container">📊 Gastos por categoria</div>
+        <div class="grafico-container">
+          🥧 Gastos <spam id="grafico"></spam>
+        </div>
+        <div class="grafico-container">
+          📈 Comparativo de gastos com receita
+        </div>
+        <div class="grafico-container">📉 Projeção de gastos</div>
+      </section>
+    </main>
+  </body>
+</html>
