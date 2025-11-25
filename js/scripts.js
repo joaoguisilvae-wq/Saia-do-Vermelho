@@ -138,34 +138,31 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Função para criar/atualizar gráficos
+  // Função para criar/atualizar gráficos
   function atualizarGraficos() {
     const dados = calcularDadosGraficos();
 
-    // --- Gráfico de Categoria (Pizza) ---
-    const ctx1 = document.getElementById("grafico-categoria")?.getContext("2d");
+    // --- Gráfico: Gastos por Categoria (Barras) ---
+    const ctx1 = document
+      .getElementById("grafico-gastos-categoria")
+      ?.getContext("2d");
     if (chartCategoria) chartCategoria.destroy();
-
     if (ctx1) {
       if (Object.keys(dados.gastosPorCategoria).length === 0) {
         ctx1.canvas.parentNode.innerHTML = "<p>Nenhum gasto registrado.</p>";
       } else {
+        const categorias = Object.keys(dados.gastosPorCategoria);
+        const valores = Object.values(dados.gastosPorCategoria);
         chartCategoria = new Chart(ctx1, {
-          type: "pie",
+          type: "bar",
           data: {
-            labels: Object.keys(dados.gastosPorCategoria),
+            labels: categorias,
             datasets: [
               {
-                data: Object.values(dados.gastosPorCategoria),
-                backgroundColor: [
-                  "#FF6384",
-                  "#36A2EB",
-                  "#FFCE56",
-                  "#4BC0C0",
-                  "#9966FF",
-                  "#FF9F40",
-                  "#8AC926",
-                  "#1982C4",
-                ],
+                label: "Gastos por Categoria (R$)",
+                data: valores,
+                backgroundColor: "#F44336",
+                borderColor: "#D32F2F",
                 borderWidth: 1,
               },
             ],
@@ -174,22 +171,82 @@ document.addEventListener("DOMContentLoaded", () => {
             responsive: true,
             maintainAspectRatio: false,
             plugins: {
-              legend: { position: "bottom" },
               title: { display: true, text: "Gastos por Categoria" },
+            },
+            scales: {
+              y: { beginAtZero: true, ticks: { callback: (v) => `R$${v}` } },
+              x: { ticks: { autoSkip: false } },
             },
           },
         });
       }
     }
 
-    // --- Gráfico Comparativo (Barras) ---
+    // --- Gráfico: Receitas Mensais (Barras) ---
     const ctx2 = document
+      .getElementById("grafico-receitas-mensal")
+      ?.getContext("2d");
+    if (chartEvolucao) chartEvolucao.destroy();
+    if (ctx2) {
+      const meses = Object.keys(dados.evolucao).sort();
+      const receitas = meses.map((m) => dados.evolucao[m].receitas);
+
+      if (meses.length === 0 || receitas.every((v) => v === 0)) {
+        ctx2.canvas.parentNode.innerHTML = "<p>Nenhuma receita registrada.</p>";
+      } else {
+        chartEvolucao = new Chart(ctx2, {
+          type: "bar",
+          data: {
+            labels: meses.map((m) => {
+              const [ano, mes] = m.split("-");
+              const nomesMeses = [
+                "Jan",
+                "Fev",
+                "Mar",
+                "Abr",
+                "Mai",
+                "Jun",
+                "Jul",
+                "Ago",
+                "Set",
+                "Out",
+                "Nov",
+                "Dez",
+              ];
+              return `${nomesMeses[parseInt(mes) - 1]}/${ano}`;
+            }),
+            datasets: [
+              {
+                label: "Receitas Mensais (R$)",
+                data: receitas,
+                backgroundColor: "#4CAF50",
+                borderColor: "#388E3C",
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              title: { display: true, text: "Receitas por Mês" },
+            },
+            scales: {
+              y: { beginAtZero: true, ticks: { callback: (v) => `R$${v}` } },
+              x: { ticks: { autoSkip: false } },
+            },
+          },
+        });
+      }
+    }
+
+    // --- Gráfico Comparativo (Receitas vs Despesas) - mantido ---
+    const ctx3 = document
       .getElementById("grafico-comparativo")
       ?.getContext("2d");
     if (chartComparativo) chartComparativo.destroy();
-
-    if (ctx2) {
-      chartComparativo = new Chart(ctx2, {
+    if (ctx3) {
+      chartComparativo = new Chart(ctx3, {
         type: "bar",
         data: {
           labels: ["Receitas", "Despesas"],
@@ -208,64 +265,12 @@ document.addEventListener("DOMContentLoaded", () => {
             title: { display: true, text: "Receitas vs Despesas" },
           },
           scales: {
-            y: { beginAtZero: true },
+            y: { beginAtZero: true, ticks: { callback: (v) => `R$${v}` } },
           },
         },
       });
     }
-
-    // --- Gráfico de Evolução (Linha) ---
-    const ctx3 = document.getElementById("grafico-evolucao")?.getContext("2d");
-    if (chartEvolucao) chartEvolucao.destroy();
-
-    if (ctx3) {
-      const meses = Object.keys(dados.evolucao).sort();
-      const receitasMes = meses.map((m) => dados.evolucao[m].receitas);
-      const despesasMes = meses.map((m) => dados.evolucao[m].despesas);
-
-      if (meses.length === 0) {
-        ctx3.canvas.parentNode.innerHTML = "<p>Sem dados para evolução.</p>";
-      } else {
-        chartEvolucao = new Chart(ctx3, {
-          type: "line",
-          data: {
-            labels: meses,
-            datasets: [
-              {
-                label: "Receitas",
-                data: receitasMes,
-                borderColor: "#4CAF50",
-                backgroundColor: "rgba(76, 175, 80, 0.1)",
-                fill: true,
-              },
-              {
-                label: "Despesas",
-                data: despesasMes,
-                borderColor: "#F44336",
-                backgroundColor: "rgba(244, 67, 54, 0.1)",
-                fill: true,
-              },
-            ],
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-              title: { display: true, text: "Evolução Mensal" },
-            },
-            scales: {
-              y: { beginAtZero: true },
-            },
-          },
-        });
-      }
-    }
   }
-
-  btnFechar.addEventListener("click", () => {
-    form.classList.add("hidden");
-  });
-
   // === Funcionalidades existentes ===
 
   // Barra de pesquisa interativa

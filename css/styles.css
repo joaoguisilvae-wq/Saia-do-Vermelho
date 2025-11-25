@@ -455,107 +455,171 @@ header {
 
 /* Media query para telas menores */
 @media (max-width: 720px) {
+  /* 1. Esconde a barra lateral */
+  header,
+  #navbar-container {
+    display: none !important;
+  }
+
+  /* 2. Ajusta o corpo para usar toda a largura */
   body {
     flex-direction: column;
     height: 100svh;
+    overflow-x: hidden; /* evita scroll horizontal */
   }
 
-  header {
-    width: 100%;
-  }
-
-  #navbar-container {
-    width: 100%;
-    height: auto;
-    margin: 10px;
-    padding: 10px;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 10px;
-  }
-
-  #navbar-container figure img {
-    width: 100px;
-    height: 60px;
-    margin-bottom: 10px;
-  }
-
-  #navbar-container ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-    order: 2;
-    gap: 10px;
-    flex-grow: 0;
-  }
-
-  .navbar-btn {
-    width: 120px;
-    height: 30px;
-    font-size: 14px;
-    margin: 0;
-  }
-
-  .navbar-btn img {
-    height: 20px;
-  }
-
-  #logout {
-    width: 120px;
-    height: 30px;
-    font-size: 14px;
-    margin: 0;
-    order: 3;
-    gap: 5px;
-  }
-
-  #logout figure img {
-    width: 25px;
-    height: 18px;
-    margin-top: 0;
-    padding-right: 0;
-  }
-
+  /* 3. Ajusta a seção principal */
   #main {
-    padding: 10px;
+    padding: 15px;
+    width: 100%;
+    overflow-x: hidden;
   }
 
+  /* 4. Barra superior: pesquisa e botão de tema lado a lado */
   #barra-superior {
-    flex-direction: column;
-    align-items: stretch;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: nowrap;
   }
 
   #barra-de-pesquisa {
-    min-width: 0;
-    width: 100%;
+    flex: 1;
+    min-width: auto;
   }
 
   #barra-de-pesquisa input[type="text"] {
     max-width: 100%;
     padding-left: 40px;
+    font-size: 14px;
   }
 
+  #mudartema {
+    flex: 0 0 auto;
+  }
+
+  #tema-btn img {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* 5. Botão "Adicionar/Retirar" abaixo da barra superior */
   #add-variaçao {
     width: 100%;
-    margin-top: 10px;
+    height: 45px;
+    margin-top: 15px;
+    font-size: 16px;
   }
 
+  /* 6. Área dos gráficos: sem scroll lateral */
   #graficos-section {
     grid-template-columns: 1fr;
     grid-gap: 15px;
+    overflow-x: hidden;
+    padding: 0;
+    margin-top: 15px;
+  }
+
+  .grafico-container {
+    min-height: 200px;
+    padding: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  /* Garante que os canvas dos gráficos também não causem overflow */
+  .grafico-container canvas {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
+/* Ajustes específicos para celulares pequenos (≤ 450px) */
+@media (max-width: 450px) {
+  /* 1. Esconde totalmente a barra lateral */
+  header {
+    display: none !important;
+  }
+
+  /* 2. Ajusta o corpo */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* 3. Reorganiza a barra superior em duas linhas */
+  #barra-superior {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    padding: 0 5px;
+  }
+
+  /* Botão de tema: largura fixa */
+  #mudartema {
+    flex: 0 0 auto;
+  }
+
+  #tema-btn img {
+    width: 36px;
+    height: 36px;
+  }
+
+  /* Barra de pesquisa: ocupa o restante da linha 1 */
+  #barra-de-pesquisa {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  #barra-de-pesquisa input[type="text"] {
+    width: 100%;
+    max-width: none;
+    padding-left: 40px;
+    height: 40px;
+    font-size: 14px;
+  }
+
+  /* Botão "Adicionar/Retirar": força ir para linha 2 */
+  #add-variaçao {
+    flex: 1 1 100%;
+    width: 100%;
+    height: 45px;
+    font-size: 16px;
+    margin-top: 0;
+  }
+
+  /* Esconde o avatar da conta em celulares pequenos */
+  #config-conta {
+    display: none;
+  }
+
+  /* 4. Gráficos: evitar scroll horizontal */
+  #graficos-section {
+    grid-template-columns: 1fr !important;
+    overflow-x: hidden;
+    padding: 10px 5px;
   }
 
   .grafico-container {
     min-height: 180px;
-    padding: 15px;
+    padding: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
   }
 
-  #ganhos-gastos {
-    width: 90%;
-    height: auto;
-    max-height: 90%;
-    transform: translate(-50%, -50%) scale(0.9);
+  .grafico-container canvas {
+    max-width: 100% !important;
+    height: auto !important;
+    width: 100% !important;
+    display: block;
+  }
+
+  /* 5. Ajuste de modais (opcional, mas útil) */
+  #ganhos-gastos,
+  #modal-historico {
+    width: 95vw !important;
+    max-width: 95vw !important;
+    padding: 20px;
   }
 }
