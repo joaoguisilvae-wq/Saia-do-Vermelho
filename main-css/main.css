@@ -12,7 +12,6 @@ a {
   font-size: 19px;
 }
 
-/* main */
 .container {
   display: flex;
   width: 100%;
@@ -21,7 +20,7 @@ a {
   justify-content: space-between;
   align-items: center;
 }
-
+/* main */
 #navbar {
   background-color: #ae1616;
   width: 95%;

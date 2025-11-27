@@ -1,5 +1,11 @@
-// Selecionando elementosa
 document.addEventListener("DOMContentLoaded", () => {
+  // 🔐 Verificação de login
+  const usuario = JSON.parse(localStorage.getItem("usuario_logado"));
+  if (!usuario || !usuario.logado) {
+    // Redireciona para a página de login se não estiver autenticado
+    window.location.href = "singin-page/singin.html";
+    return; // Impede que o resto do código execute
+  }
   const searchInput = document.querySelector(
     '#barra-de-pesquisa input[type="text"]'
   );
